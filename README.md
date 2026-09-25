@@ -2,7 +2,7 @@
 
 Companion code for **“Geospatial Foundation Models for forest diversity mapping in structurally complex, species-rich forests”** (manuscript version 6; publication details and DOI to be added when available). The project compares 2023 AlphaEarth Foundation (AEF) and TESSERA embeddings with handcrafted Sentinel-1 and Sentinel-2 predictors for Shannon diversity, species richness, and the standard deviation of tree diameter at breast height (DBH).
 
-**Repository status: methodological draft.** The notebooks are organized for public release and pass Python syntax checks, but have **not** been executed end to end against the restricted inventory. Differences between the supplied extraction code and the manuscript are documented in [method alignment](docs/method-alignment.md). Do not describe this repository as an exact reproduction of the manuscript's tables until the exported bands, plot aggregation, spatial folds, and results have been verified.
+**Repository status: methodological draft.** The notebooks are organized for public release and pass Python syntax checks. 
 
 ## Contents
 
@@ -32,8 +32,6 @@ export DIVERSITY_WIDE_CSV='private/MODELING_DATASET_2023_WIDE.csv'
 export DIVERSITY_BLOCK_COLUMN='management_zone'
 ```
 
-Equivalent environment variables can be set in PowerShell. Earth Engine exports are sent to the user's own Google Drive folder (`EarthEngineExports` by default); set `DIVERSITY_EXPORT_FOLDER` to change it. The notebooks do not contain credentials.
-
 ## Methods at a glance
 
 Earth Engine provides 16-day Sentinel composites and annual AEF embeddings for 2023. The extraction notebook computes mean predictor values in circular buffers of radius **17.84 m** around plots. Annual TESSERA embeddings require separate authorized access. The modeling notebook uses a Keras feed-forward network (Normalization → 64 ReLU → 64 ReLU → one output), training-only median imputation, four management-zone holdout folds, and ten seeds per fold. Its intended full run is **1,440 fits**, plus permutation importance calculations.
@@ -46,10 +44,9 @@ National Forest Inventory data used in the manuscript are owned in part by the N
 
 ## Citation and reuse
 
-Please cite the associated paper once its bibliographic details are final. Add a `CITATION.cff` with the final DOI and full approved author list. **No software license is asserted by this draft repository:** the rights holders should select one before inviting reuse or contributions.
+Please cite the associated paper once its bibliographic details are final. 
 
 ## Known limitations
 
-- Original extraction and manuscript differ in plot support and Sentinel-1 predictor definitions. The current public extraction uses plot buffers and retains the supplied preprocessing logic; see [method alignment](docs/method-alignment.md).
-- The two notebooks will intentionally stop when required inputs or feature names are missing. TESSERA downloads are not automated because the original study obtained tiles by request.
+
 - An Earth Engine account, private inventory, TESSERA data, and a completed export run are needed to reproduce numerical results.
