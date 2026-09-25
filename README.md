@@ -34,7 +34,7 @@ export DIVERSITY_BLOCK_COLUMN='management_zone'
 
 ## Methods at a glance
 
-Earth Engine provides 16-day Sentinel composites and annual AEF embeddings for 2023. The extraction notebook computes mean predictor values in circular buffers of radius **17.84 m** around plots. Annual TESSERA embeddings require separate authorized access. The modeling notebook uses a Keras feed-forward network (Normalization → 64 ReLU → 64 ReLU → one output), training-only median imputation, four management-zone holdout folds, and ten seeds per fold. Its intended full run is **1,440 fits**, plus permutation importance calculations.
+Earth Engine provides 16-day Sentinel composites and annual AEF embeddings for 2023. The extraction notebook computes mean predictor values in circular buffers of radius **17.84 m** around plots. Annual TESSERA embeddings require separate authorized access. The modeling notebook uses a Keras feed-forward network (Normalization → 64 ReLU → 64 ReLU → one output), training-only median imputation, four management-zone holdout folds, and ten seeds per fold.
 
 Each held-out zone remains outside imputation, normalization, network training, and early-stopping validation. Early stopping uses a subset of the other three zones. Reported results are saved locally under `outputs/` and excluded from Git; they are **not** supplied here.
 
