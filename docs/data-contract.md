@@ -19,4 +19,4 @@ Notebook 02 requires one row per plot, a four-zone `management_zone` field, all 
 - Check 23 temporal bins, dates, missing-value fractions, and pixel support within buffers.
 - Confirm the 2023 product versions, S1 orbit handling, S2 cloud masks, RaoQ definition, and TESSERA dimensionality.
 - Validate the four zones against the management boundaries in the manuscript; plot IDs do not encode spatial folds.
-- Run a small authorized data smoke test before the complete 1,440-model experiment.
+- Run a small authorized data smoke test before the model experiment.
