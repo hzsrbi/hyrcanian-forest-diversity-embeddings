@@ -1,0 +1,12 @@
+# Installation ranges for the example workflow; freeze exact versions for a reported run.
+earthengine-api>=1,<2
+geopandas>=1,<2
+numpy>=1.26,<3
+pandas>=2.2,<4
+shapely>=2,<3
+scikit-learn>=1.5,<2
+tensorflow>=2.16,<3
+matplotlib>=3.8,<4
+seaborn>=0.13,<1
+jupyterlab>=4,<5
+ipykernel>=6,<8
